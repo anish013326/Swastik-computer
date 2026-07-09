@@ -1,76 +1,87 @@
-// Imports
-import React, { useEffect, useState } from 'react';
-import { FiArrowRight } from 'react-icons/fi';
-import shopImage from '../assets/public/shop.png';
-import heroImage from '../assets/public/image2.jpeg';
-import image1 from '../assets/public/image3.jpeg';
-import shop2 from '../assets/public/shop2.jpeg';
+import React, { useEffect, useState } from "react";
+import { FiArrowRight } from "react-icons/fi";
 
-
-
-
+import shopImage from "../assets/public/11.jpeg";
+import heroImage from "../assets/public/12.jpeg";
+import image1 from "../assets/public/13.jpeg";
+import shop2 from "../assets/public/14.jpeg";
+import shop3 from "../assets/public/15.jpeg";
+import shop4 from "../assets/public/16.jpeg";
 
 const images = [
-  { src: shop2, alt: 'Modern Computer Setup' },
-  { src: shopImage, alt: 'Shop Front' },
-  { src: heroImage, alt: 'Workstation Laptop' },
-  { src: image1, alt: 'Modern Computer Setup' }
+  { src: shopImage, alt: "Shop Front" },
+  { src: heroImage, alt: "Workstation Laptop" },
+  { src: image1, alt: "Workstation Laptop" },
+  { src: shop2, alt: "Modern Computer Setup" },
+  { src: shop3, alt: "Modern Computer Setup" },
+  { src: shop4, alt: "Modern Computer Setup" },
 
+  { src: image1, alt: "Modern Computer Setup" },
 ];
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
+    const interval = setInterval(
+      () => setCurrentImage((prev) => (prev + 1) % images.length),
+      3000,
+    );
 
-    return () => clearInterval(intervalId);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section id="home" className="bg-black text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
-        <div className="md:w-1/2 space-y-6">
-          <span className="text-gray-400 font-bold tracking-widest uppercase text-xs border border-gray-700 px-3 py-1 rounded-full">
+    <section
+      id="home"
+      className="relative flex min-h-[100svh] items-center overflow-hidden bg-black px-4 py-12 text-white sm:px-6 sm:py-14 lg:px-8 lg:py-16"
+    >
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-10 md:flex-row lg:gap-16">
+        {/* Left Content */}
+        <div className="space-y-6 text-center md:w-1/2 md:text-left">
+          <span className="mx-auto inline-flex rounded-full border border-gray-700 px-3 py-1 text-[20px] font-bold uppercase tracking-widest text-gray-400 md:mx-0">
             Welcome to Swastik Computer
           </span>
-          <h2 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tighter">
-            Upgrade Your Setup <br/> With Swastik Computer.
+
+          <h2
+            className="text-3xl font-extrabold leading-[1.08] tracking-tighter sm:text-4xl md:text-6xl"
+            style={{ fontFamily: "Sora, sans-serif" }}
+          >
+            Your Partner in IT and CCTV Solutions
           </h2>
-          <p className="text-gray-400 max-w-md text-sm md:text-base font-medium">
-            Computer dealers, laptop sales, CCTV installation, and repair services in Gandhi Nagar, Dehri On Sone.
+
+          <p className="mx-auto max-w-md  font-medium text-gray-400 sm:text-base md:mx-0">
+            SALES & SERVICE
           </p>
-          <div className="flex space-x-4 pt-4">
-            <button className="bg-white text-black hover:bg-gray-200 px-7 py-3.5 rounded-full font-bold transition flex items-center">
-              Shop Laptops <FiArrowRight className="ml-2" />
-            </button>
-            <button className="bg-transparent border border-gray-700 text-white hover:bg-gray-900 px-7 py-3.5 rounded-full font-bold transition">
-              Book Repair
-            </button>
+
+          <div className="flex flex-col justify-center gap-3 pt-3 sm:flex-row sm:gap-4 sm:pt-4 md:justify-start">
+           
           </div>
         </div>
 
-        <div className="md:w-1/2 mt-16 md:mt-0 flex justify-center relative">
-          <div className="w-[500px] h-[500px] bg-gray-800 rounded-full blur-[100px] opacity-40 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="relative z-10 w-full max-w-[550px]">
+        {/* Right Image Slider */}
+        <div className="relative mt-2 flex w-full justify-center md:mt-0 md:w-1/2">
+          <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-800 opacity-40 blur-[90px] sm:h-[420px] sm:w-[420px] sm:blur-[120px] lg:h-[560px] lg:w-[560px]" />
+
+          <div className="relative z-10 h-[340px] w-full max-w-[620px] overflow-hidden rounded-2xl shadow-2xl sm:h-[460px] sm:rounded-3xl lg:h-[540px]">
             <img
               src={images[currentImage].src}
               alt={images[currentImage].alt}
-              className="w-full rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-700 object-cover aspect-square"
+              className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
             />
-            <div className="flex justify-center gap-2 mt-5">
+
+            {/* Slider Dots */}
+            <div className="mt-5 flex justify-center gap-2">
               {images.map((_, index) => (
                 <button
                   key={index}
-                  type="button"
                   onClick={() => setCurrentImage(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentImage ? 'w-8 bg-white' : 'w-2.5 bg-gray-600 hover:bg-gray-400'
-                  }`}
                   aria-label={`Show slide ${index + 1}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentImage === index
+                      ? "w-8 bg-white"
+                      : "w-2.5 bg-gray-600 hover:bg-gray-400"
+                  }`}
                 />
               ))}
             </div>

@@ -12,32 +12,32 @@ const Products = ({ products = [] }) => {
   const productList = products.length > 0 ? products : defaultProducts;
 
   return (
-    <section id="laptops" className="py-24 px-4 max-w-7xl mx-auto">
-      <div className="flex justify-between items-end mb-12 border-b border-gray-200 pb-6">
+    <section id="laptops" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10 sm:mb-12 border-b border-gray-200 pb-5 sm:pb-6">
         <div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tighter">Featured Equipment</h2>
-          <p className="text-gray-500 mt-2 text-sm font-medium">Best sellers from top brands with official warranty.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black tracking-tighter">NEW LAPTOPS</h2>
+          <p className="text-gray-500 mt-2 text-sm font-medium max-w-xl">Best sellers from top brands with official warranty.</p>
         </div>
-        <a href="#" className="text-black font-bold hover:text-gray-500 text-sm flex items-center">
+        <a href="#" className="text-black font-bold hover:text-gray-500 text-sm flex items-center self-start sm:self-auto">
           View All <FiArrowRight className="ml-1" />
         </a>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 lg:gap-8">
         {productList.map((product) => (
           <div key={product.id} className="bg-white group cursor-pointer">
-            <div className="bg-gray-100 rounded-2xl mb-6 overflow-hidden h-56 relative flex items-center justify-center">
+            <div className="bg-gray-100 rounded-2xl mb-4 sm:mb-6 overflow-hidden h-48 sm:h-52 lg:h-56 relative flex items-center justify-center">
               <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <button className="bg-white text-black font-bold px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                <button className="bg-white text-black font-bold px-5 sm:px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm sm:text-base">
                   Quick Add
                 </button>
               </div>
             </div>
-            <h3 className="font-bold text-black text-lg tracking-tight truncate">{product.name}</h3>
+            <h3 className="font-bold text-black text-base sm:text-lg tracking-tight truncate">{product.name}</h3>
             <p className="text-sm text-gray-500 mt-1 font-medium">{product.specs}</p>
-            <div className="mt-4 flex items-center justify-between">
-              <span className="font-extrabold text-black text-lg">{product.price}</span>
+            <div className="mt-3 sm:mt-4 flex items-center justify-between">
+              <span className="font-extrabold text-black text-base sm:text-lg">{product.price}</span>
             </div>
           </div>
         ))}
