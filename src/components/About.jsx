@@ -3,8 +3,8 @@ import { FiAward, FiTool, FiShield, FiUsers, FiZap } from "react-icons/fi";
 
 const highlights = [
   {
-    title: "2011",
-    text: "Established and trusted by local businesses and families in Dehri On Sone.",
+    title: "Establishment",
+    text: "Established in 2011 and trusted by local businesses and families in Dehri-on-Sone",
     icon: FiAward,
   },
   {

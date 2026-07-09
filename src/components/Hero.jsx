@@ -67,7 +67,7 @@ const Hero = () => {
             <img
               src={images[currentImage].src}
               alt={images[currentImage].alt}
-              className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+              className="h-full w-full object-contain object-center transition-transform duration-700 hover:scale-105"
             />
 
             {/* Slider Dots */}

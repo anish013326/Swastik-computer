@@ -27,7 +27,7 @@ const Products = ({ products = [] }) => {
         {productList.map((product) => (
           <div key={product.id} className="bg-white group cursor-pointer">
             <div className="bg-gray-100 rounded-2xl mb-4 sm:mb-6 overflow-hidden h-48 sm:h-52 lg:h-56 relative flex items-center justify-center">
-              <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src={product.image} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <button className="bg-white text-black font-bold px-5 sm:px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm sm:text-base">
                   Quick Add
