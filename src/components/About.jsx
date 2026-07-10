@@ -1,5 +1,6 @@
 import React from "react";
 import { FiAward, FiTool, FiShield, FiUsers, FiZap } from "react-icons/fi";
+import shopVideo from "../assets/public/video.mp4";
 
 const highlights = [
   {
@@ -12,10 +13,12 @@ const highlights = [
     text: "Sales, service, and maintenance for laptops, desktops, printers, UPS, and CCTV.",
     icon: FiTool,
   },
+];
+
+const aboutVideoSources = [
   {
-    title: "",
-    text: "",
-    videoEmbedUrl: "https://drive.google.com/file/d/1F49atwQGdHAOzOPYZXfvtYpPXuuyJpcg/preview",
+    src: shopVideo,
+    type: "video/mp4",
   },
 ];
 
@@ -38,7 +41,7 @@ const About = () => {
     <section id="about" className="relative overflow-hidden bg-[#f6f7fb] py-16 sm:py-20 lg:py-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.12),_transparent_36%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),_transparent_32%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div className="space-y-6">
             <span className="inline-flex items-center rounded-full border border-blue-200 bg-white px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.28em] text-blue-700 shadow-sm">
               About Swastik Computer
@@ -63,40 +66,47 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2">
               {highlights.map((item) => {
                 return (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-white/70 bg-white p-5 shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
+                    className="h-full rounded-2xl border border-white/70 bg-white p-5 shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
                   >
-                    {item.videoEmbedUrl ? (
-                      <div className="relative mb-4 overflow-hidden rounded-2xl bg-black">
-                        <iframe
-                          src={item.videoEmbedUrl}
-                          title={item.title || "Shop video"}
-                          className="h-48 w-full border-0 sm:h-56"
-                          allow="autoplay; encrypted-media; picture-in-picture"
-                          allowFullScreen
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                      </div>
-                    ) : (
-                      <div className="mb-4 inline-flex rounded-2xl bg-gray-950 p-3 text-white">
-                        <item.icon className="text-xl" />
-                      </div>
-                    )}
+                    <div className="mb-4 inline-flex rounded-2xl bg-gray-950 p-3 text-white">
+                      <item.icon className="text-xl" />
+                    </div>
                     <h3 className="text-lg font-bold text-gray-950">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-gray-600">{item.text}</p>
                   </div>
                 );
               })}
             </div>
+
+            <div className="overflow-hidden rounded-2xl border border-white/70 bg-white p-3 shadow-[0_16px_40px_rgba(15,23,42,0.06)] sm:p-4">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-gray-500">
+                Inside Our Shop
+              </p>
+              <div className="overflow-hidden rounded-xl bg-black">
+                <video
+                  className="aspect-video w-full object-cover"
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                >
+                  {aboutVideoSources.map((video) => (
+                    <source key={video.type} src={video.src} type={video.type} />
+                  ))}
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
           </div>
 
-          <div className="relative">
+          <div className="relative h-full">
             <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/15 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-gray-950 p-6 text-white shadow-2xl sm:p-8">
+            <div className="relative h-full overflow-hidden rounded-[2rem] border border-white/60 bg-gray-950 p-6 text-white shadow-2xl sm:p-8">
               <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-6">
                 <div>
                  
