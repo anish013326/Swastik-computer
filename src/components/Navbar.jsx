@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { FiPhone } from "react-icons/fi";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaLaptop } from "react-icons/fa";
+import { FaLaptop, FaUserShield } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,14 +11,12 @@ const Navbar = () => {
     "Hello Swastik Computer, I would like to know more about your products and services.";
 
   const navLinks = [
-    { href: "#home", label: "HOME" },
-    { href: "#Products", label: "NEW LAPTOPS" },
-    { href: "#laptops", label: "REFURBISHED LAPTOPS" },
-    { href: "#about", label: "PRINTER" },
-    { href: "#about", label: "CCTV" },
-    { href: "#about", label: "ABOUT" },
-    
-    
+    { href: "/", label: "HOME" },
+    { href: "/category/new-laptops", label: "NEW LAPTOPS" },
+    { href: "/category/refurbished-laptops", label: "REFURBISHED LAPTOPS" },
+    { href: "/category/printer", label: "PRINTER" },
+    { href: "/category/cctv", label: "CCTV" },
+    { href: "/#about", label: "ABOUT" },
   ];
 
   return (
@@ -41,13 +40,13 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="text-gray-600 hover:text-black font-semibold text-sm transition"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -72,6 +71,14 @@ const Navbar = () => {
               <FaWhatsapp className="mr-2 text-lg" />
               WhatsApp
             </a>
+
+            <Link
+              to="/admin"
+              className="flex items-center text-gray-500 hover:text-black font-semibold text-sm transition"
+            >
+              <FaUserShield className="mr-1 text-lg" />
+              Admin
+            </Link>
           </div>
 
           <button
@@ -95,14 +102,14 @@ const Navbar = () => {
           <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-lg">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMenuOpen(false)}
                   className="rounded-xl px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-black"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
 

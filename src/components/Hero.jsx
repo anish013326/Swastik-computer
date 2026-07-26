@@ -40,7 +40,7 @@ const Hero = () => {
         {/* Left Content */}
         <div className="space-y-6 text-center md:w-1/2 md:text-left">
           {/* Responsive Text Size fixed for mobile */}
-          <span className="mx-auto inline-flex rounded-full border border-gray-700 px-3 py-1 text-sm sm:text-[20px] font-bold uppercase tracking-widest text-gray-400 md:mx-0">
+          <span className="mx-auto inline-flex rounded-full border border-gray-700 px-3 py-1 text-sm sm:text-[20px] font-bold uppercase tracking-widest text-gray-400 md:mx-0 ">
             Welcome to Swastik Computer
           </span>
 
