@@ -133,6 +133,15 @@ const Navbar = () => {
                 <FaWhatsapp className="mr-2 text-lg" />
                 WhatsApp
               </a>
+              
+              <Link
+                to="/admin"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 font-bold text-gray-700 transition hover:bg-gray-50 sm:col-span-2"
+              >
+                <FaUserShield className="text-lg" />
+                Admin Dashboard
+              </Link>
             </div>
           </div>
         </div>
