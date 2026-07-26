@@ -2,7 +2,7 @@ import React from 'react';
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 import { FaLaptop } from 'react-icons/fa';
 
-const Footer = ({ shopInfo = {}, links = {} }) => {
+const Footer = ({ shopInfo = {} }) => {
   const defaultShopInfo = {
     name: "SWASTIK COMPUTER",
     address: "1st Floor, Sharda Complex, Beside Central Bank Of India, Opposite LIC Building, Pali Road, Gandhi Nagar, Dehri On Sone-821307, Bihar.",
@@ -11,26 +11,14 @@ const Footer = ({ shopInfo = {}, links = {} }) => {
     gstin: "10**********1ZA"
   };
 
-  const defaultLinks = {
-    quick: [
-      { name: "NEW LAPTOPS", href: "#laptops" },
-      { name: "REFURBISHED LAPTOP", href: "#gaming" },
-      { name: "DESKTOP", href: "#repair" },
-      { name: "PRINTER", href: "#contact" },
-      { name: "CCTV", href: "#contact" }
-    ]
-  };
-
   const info = { ...defaultShopInfo, ...shopInfo };
-  const footerLinks = { ...defaultLinks, ...links };
   const mapQuery = encodeURIComponent(info.address);
   const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
   const embedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 
   return (
     <footer id="contact" className="bg-black text-white py-14 sm:py-16 px-4 border-t border-gray-900">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
-        
+      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1fr_1.35fr_1fr] lg:items-start">
         {/* Shop Info */}
         <div className="space-y-5 sm:space-y-6">
           <div className="flex items-center space-x-2">
@@ -42,18 +30,8 @@ const Footer = ({ shopInfo = {}, links = {} }) => {
           <p className="text-sm text-gray-400 font-medium leading-relaxed">{info.address}</p>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-xs">Quick Links</h4>
-          <ul className="space-y-3 text-sm font-medium text-gray-400">
-            {footerLinks.quick.map((link, idx) => (
-              <li key={idx}><a href={link.href} className="hover:text-white transition">{link.name}</a></li>
-            ))}
-          </ul>
-        </div>
-
         {/* Map */}
-        <div>
+        <div className="sm:col-span-2 lg:col-span-1">
           <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-xs">Find Us</h4>
           <div className="overflow-hidden rounded-2xl border border-gray-800 bg-gray-950 shadow-lg">
             <iframe
@@ -64,7 +42,7 @@ const Footer = ({ shopInfo = {}, links = {} }) => {
               referrerPolicy="no-referrer-when-downgrade"
             />
             <div className="p-4">
-              <p className="text-sm leading-6 text-gray-400">{}</p>
+              <p className="text-sm leading-6 text-gray-400">{info.address}</p>
               <a
                 href={directionsUrl}
                 target="_blank"
@@ -78,7 +56,7 @@ const Footer = ({ shopInfo = {}, links = {} }) => {
         </div>
 
         {/* Contact Info */}
-        <div>
+        <div className="lg:pl-4">
           <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-xs">Contact Us</h4>
           <ul className="space-y-4 text-sm font-medium text-gray-400">
             <li className="flex items-start space-x-3">

@@ -20,7 +20,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200">
+    <nav className="bg-slate-950/80 backdrop-blur-xl shadow-sm sticky top-0 z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
@@ -43,7 +43,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-gray-600 hover:text-black font-semibold text-sm transition"
+                className="text-gray-300 hover:text-white font-semibold text-sm transition tracking-wide"
               >
                 {link.label}
               </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             <a
               href="tel:+917004084867"
-              className="flex items-center gap-2 bg-black text-white px-4 lg:px-5 py-2.5 rounded-full font-semibold hover:bg-gray-800 transition"
+              className="flex items-center gap-2 bg-white/10 text-white px-4 lg:px-5 py-2.5 rounded-full font-semibold hover:bg-white/20 transition ring-1 ring-white/20"
             >
               <FiPhone className="text-lg" />
               Call Now
@@ -66,7 +66,7 @@ const Navbar = () => {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center bg-emerald-500 hover:bg-emerald-600 text-white px-4 lg:px-5 py-2.5 rounded-full text-sm font-bold transition shadow-md"
+              className="flex items-center bg-emerald-500 hover:bg-emerald-400 text-white px-4 lg:px-5 py-2.5 rounded-full text-sm font-bold transition shadow-[0_0_15px_rgba(16,185,129,0.3)]"
             >
               <FaWhatsapp className="mr-2 text-lg" />
               WhatsApp
@@ -74,7 +74,7 @@ const Navbar = () => {
 
             <Link
               to="/admin"
-              className="flex items-center text-gray-500 hover:text-black font-semibold text-sm transition"
+              className="flex items-center text-gray-400 hover:text-white font-semibold text-sm transition"
             >
               <FaUserShield className="mr-1 text-lg" />
               Admin
@@ -83,7 +83,7 @@ const Navbar = () => {
 
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center rounded-full border border-gray-200 bg-white p-3 text-gray-900 shadow-sm"
+            className="md:hidden inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-3 text-white shadow-sm hover:bg-white/10 transition"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
@@ -99,14 +99,14 @@ const Navbar = () => {
             menuOpen ? "max-h-[36rem] overflow-y-auto opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
           }`}
         >
-          <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-lg">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-xl p-4 shadow-2xl ring-1 ring-white/5">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-black"
+                  className="rounded-xl px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -116,7 +116,7 @@ const Navbar = () => {
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <a
                 href="tel:+917004084867"
-                className="flex items-center justify-center gap-2 rounded-full bg-black px-5 py-3 font-semibold text-white transition hover:bg-gray-800"
+                className="flex items-center justify-center gap-2 rounded-full bg-white/10 px-5 py-3 font-semibold text-white transition hover:bg-white/20 ring-1 ring-white/20"
               >
                 <FiPhone className="text-lg" />
                 Call Now
@@ -128,7 +128,7 @@ const Navbar = () => {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center rounded-full bg-emerald-500 px-5 py-3 font-bold text-white transition hover:bg-emerald-600"
+                className="flex items-center justify-center rounded-full bg-emerald-500 px-5 py-3 font-bold text-white transition hover:bg-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
               >
                 <FaWhatsapp className="mr-2 text-lg" />
                 WhatsApp
@@ -137,7 +137,7 @@ const Navbar = () => {
               <Link
                 to="/admin"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 font-bold text-gray-700 transition hover:bg-gray-50 sm:col-span-2"
+                className="flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 font-bold text-gray-300 transition hover:bg-white/10 hover:text-white sm:col-span-2"
               >
                 <FaUserShield className="text-lg" />
                 Admin Dashboard

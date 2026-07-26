@@ -38,26 +38,26 @@ const brands = [
 
 const About = () => {
   return (
-    <section id="about" className="relative overflow-hidden bg-[#f6f7fb] py-16 sm:py-20 lg:py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.12),_transparent_36%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),_transparent_32%)]" />
+    <section id="about" className="relative overflow-hidden bg-slate-900 py-16 sm:py-20 lg:py-24 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(168,85,247,0.15),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(59,130,246,0.15),_transparent_40%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div className="space-y-6">
-            <span className="inline-flex items-center rounded-full border border-blue-200 bg-white px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.28em] text-blue-700 shadow-sm">
+            <span className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.28em] text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
               About Swastik Computer
             </span>
 
             <div className="space-y-4">
-              <h2 className="max-w-2xl text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
+              <h2 className="max-w-2xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
                 COMPLETE IT SHOP
               </h2>
-              <p className="max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
+              <p className="max-w-2xl text-base leading-7 text-gray-300 sm:text-lg">
                 Established in 2011, we are the leading computer shop in Dehri On Sone.
                 We deal in laptops, desktops, printers, on line UPS, CCTV, and all types
                 of accessories. Our focus is simple: reliable products, practical advice,
                 and service you can count on.
               </p>
-              <p className="max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
+              <p className="max-w-2xl text-base leading-7 text-gray-300 sm:text-lg">
                 We are also the authorized partner of HP, Dell, Lenovo, Brother, Canon,
                 EPSON, CP Plus, D-Link, ProDot, Zebronics, Consistent, and other trusted
                 brands. Along with sales, we provide expert repair services for desktops,
@@ -71,23 +71,23 @@ const About = () => {
                 return (
                   <div
                     key={item.title}
-                    className="h-full rounded-2xl border border-white/70 bg-white p-5 shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
+                    className="h-full rounded-2xl border border-white/10 bg-white/5 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.3)] backdrop-blur-md hover:bg-white/10 transition"
                   >
-                    <div className="mb-4 inline-flex rounded-2xl bg-gray-950 p-3 text-white">
+                    <div className="mb-4 inline-flex rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 p-3 text-white shadow-lg shadow-purple-500/30">
                       <item.icon className="text-xl" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-950">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-gray-600">{item.text}</p>
+                    <h3 className="text-lg font-bold text-white">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-400">{item.text}</p>
                   </div>
                 );
               })}
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-white/70 bg-white p-3 shadow-[0_16px_40px_rgba(15,23,42,0.06)] sm:p-4">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-gray-500">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_16px_40px_rgba(0,0,0,0.3)] backdrop-blur-md sm:p-4">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-gray-400">
                 Inside Our Shop
               </p>
-              <div className="overflow-hidden rounded-xl bg-black">
+              <div className="overflow-hidden rounded-xl bg-black ring-1 ring-white/10">
                 <video
                   className="aspect-video w-full object-cover"
                   controls
@@ -105,8 +105,8 @@ const About = () => {
           </div>
 
           <div className="relative h-full">
-            <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/15 blur-3xl" />
-            <div className="relative h-full overflow-hidden rounded-[2rem] border border-white/60 bg-gray-950 p-6 text-white shadow-2xl sm:p-8">
+            <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-blue-600 via-purple-600 to-pink-600 opacity-20 blur-[80px]" />
+            <div className="relative h-full overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 backdrop-blur-xl p-6 text-white shadow-2xl ring-1 ring-white/5 sm:p-8">
               <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-6">
                 <div>
                  
@@ -162,7 +162,7 @@ const About = () => {
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="tel:+917004084867"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-bold text-gray-950 transition hover:bg-gray-100"
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-5 py-3 text-sm font-bold text-white transition hover:opacity-90 shadow-lg shadow-purple-500/30"
                 >
                   Call for Support
                 </a>
