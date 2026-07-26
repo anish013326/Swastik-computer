@@ -96,7 +96,7 @@ const Navbar = () => {
         <div
           id="mobile-navigation"
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            menuOpen ? "max-h-[28rem] opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
+            menuOpen ? "max-h-[36rem] overflow-y-auto opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
           }`}
         >
           <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-lg">
