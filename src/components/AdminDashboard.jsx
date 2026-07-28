@@ -17,9 +17,11 @@ const AdminDashboard = () => {
   const [filterCategory, setFilterCategory] = useState('All');
   const [imageFile, setImageFile] = useState(null);
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch(`${API_URL}/api/products`);
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -81,8 +83,8 @@ const AdminDashboard = () => {
       }
 
       const url = editingId 
-        ? `http://localhost:5000/api/products/${editingId}`
-        : 'http://localhost:5000/api/products';
+        ? `${API_URL}/api/products/${editingId}`
+        : `${API_URL}/api/products`;
         
       const method = editingId ? 'PUT' : 'POST';
 
@@ -109,7 +111,7 @@ const AdminDashboard = () => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         const token = localStorage.getItem('adminToken');
-        const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+        const response = await fetch(`${API_URL}/api/products/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

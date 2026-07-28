@@ -21,7 +21,9 @@ router.post('/', protect, upload.single('imageFile'), async (req, res) => {
     const newProduct = await productService.addProduct(req.body, req.file);
     res.status(201).json(newProduct);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.error("Product Creation Error:", JSON.stringify(error, null, 2) || error);
+    const errorMsg = error.message || (error.error && error.error.message) || JSON.stringify(error) || "Failed to create product";
+    res.status(400).json({ message: errorMsg });
   }
 });
 
@@ -31,10 +33,12 @@ router.put('/:id', protect, upload.single('imageFile'), async (req, res) => {
     const updatedProduct = await productService.modifyProduct(req.params.id, req.body, req.file);
     res.json(updatedProduct);
   } catch (error) {
+    console.error("Product Update Error:", JSON.stringify(error, null, 2) || error);
     if (error.message === 'Product not found') {
       return res.status(404).json({ message: error.message });
     }
-    res.status(400).json({ message: error.message });
+    const errorMsg = error.message || (error.error && error.error.message) || JSON.stringify(error) || "Failed to update product";
+    res.status(400).json({ message: errorMsg });
   }
 });
 

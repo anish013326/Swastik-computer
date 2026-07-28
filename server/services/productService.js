@@ -9,7 +9,8 @@ class ProductService {
     let imagePath = bodyData.image; 
     
     if (fileData) {
-      imagePath = `http://localhost:5000/uploads/${fileData.filename}`;
+      // fileData.path is the secure URL provided by Cloudinary
+      imagePath = fileData.path;
     }
 
     const productData = {
@@ -31,7 +32,8 @@ class ProductService {
 
     let imagePath = bodyData.image;
     if (fileData) {
-      imagePath = `http://localhost:5000/uploads/${fileData.filename}`;
+      // fileData.path is the secure URL provided by Cloudinary
+      imagePath = fileData.path;
     }
 
     const updateData = {

@@ -5,10 +5,12 @@ const Products = ({ category, categoryTitle }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/products');
+        const response = await fetch(`${API_URL}/api/products`);
         const data = await response.json();
         setProducts(data);
         setLoading(false);
