@@ -1,0 +1,12 @@
+{
+  "name": "swastik-computer-root",
+  "version": "1.0.0",
+  "description": "Root configuration for Azure App Service backend deployment",
+  "scripts": {
+    "install": "npm install --prefix backend",
+    "start": "npm start --prefix backend"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
